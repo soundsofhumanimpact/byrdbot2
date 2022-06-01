@@ -1010,8 +1010,8 @@ recognition.start()
 //         this.birdSong5 = new Audio(this.birdNumber5)
 //         this.birdSong5.volume = .5
 //         
-//         this.birdSong6 = new Audio(this.birdNumber6)
-//         this.birdSong6.volume = .25
+        this.birdSong6 = new Audio(this.birdNumber6)
+        this.birdSong6.volume = .25
         
         this.birdSong7 = new Audio(this.birdNumber7)
         this.birdSong7.volume = .2
@@ -1066,8 +1066,8 @@ recognition.start()
 //           this.birdSong4.currentTime = 0;
 //           this.birdSong5.pause();
 //           this.birdSong5.currentTime = 0;
-//           this.birdSong6.pause();
-//           this.birdSong6.currentTime = 0;
+          this.birdSong6.pause();
+          this.birdSong6.currentTime = 0;
           this.birdSong7.pause();
           this.birdSong7.currentTime = 0;
           this.birdSong8.pause();
@@ -1185,8 +1185,8 @@ recognition.start()
 //           this.birdSong4.currentTime = 0;
 //           this.birdSong5.pause();
 //           this.birdSong5.currentTime = 0;
-//           this.birdSong6.pause();
-//           this.birdSong6.currentTime = 0;
+          this.birdSong6.pause();
+          this.birdSong6.currentTime = 0;
           this.birdSong7.pause();
           this.birdSong7.currentTime = 0;
           this.birdSong8.pause();
@@ -1468,8 +1468,8 @@ recognition.start()
 //           this.birdSong4.currentTime = 0;
 //           this.birdSong5.pause();
 //           this.birdSong5.currentTime = 0;
-//           this.birdSong6.pause();
-//           this.birdSong6.currentTime = 0;
+          this.birdSong6.pause();
+          this.birdSong6.currentTime = 0;
           this.birdSong7.pause();
           this.birdSong7.currentTime = 0;
           this.birdSong8.pause();
@@ -1578,7 +1578,7 @@ recognition.start()
 //           this.birdSong3.play();
 //           this.birdSong4.play();
 //           this.birdSong5.play();
-//           this.birdSong6.play();
+          this.birdSong6.play();
           this.birdSong7.play();
           this.birdSong8.play();
           this.birdSong9.play();
