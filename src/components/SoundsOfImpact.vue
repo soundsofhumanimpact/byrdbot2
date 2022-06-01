@@ -1414,7 +1414,7 @@ recognition.start()
         var canvas = document.getElementsByTagName("canvas")[0]
         canvas.width = 0
         canvas.height = 0
-        if (this.stop == false){
+
         
           this.birdSound1.pause();
           this.birdSound1.currentTime = 0;
@@ -1479,7 +1479,7 @@ recognition.start()
           this.birdSong10.pause();
           this.birdSong10.currentTime = 0;
           
-        }
+        
      },   
      visualizeNineteenSeventy: function (){
 		this.seventyStop = true
