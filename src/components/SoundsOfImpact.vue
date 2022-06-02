@@ -911,7 +911,10 @@ recognition.start()
        })
        .catch(function (error) {
        console.log(error);
-       self.processing = error + " Please click the reset button and try again"
+       self.processing = error + ". Restarting."
+       self.sleep(200).then(() => {
+        self.loopFour()
+          })
        if (error) {self.resetHidden = true
        }
        })
@@ -928,6 +931,10 @@ recognition.start()
     },
         loopThree: function () {
       this.fiftyFifty()
+    },
+    
+    loopFour: function () {
+      this.generateSoundscape()
     },
     
 		loadSounds: function () {
