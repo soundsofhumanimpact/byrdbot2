@@ -4,27 +4,33 @@
   <h2 id="time" class="messageOne">{{ msg }}</h2>
     <h3 id="messageTwo">{{ msg2 }}</h3> 
     <h2 class="blink_me" id="processing">{{ processing }}</h2> 
-    <p id="overview" v-if="!isHidden">There are around 3 billion fewer birds alive in North America today than there were in 1970. 3 billion is one of those numbers that is so big, it is difficult to understand.<br><br>Interested to learn what 3 billion less birds in the environment sounds like, we built Byrd Bot, an online tool that generates artificial bird soundscapes that simulate what the woods would sound like at 3 different points in time: 1970, 2017, and 2065.<br><br>Users can compare the soundscapes to experience decades of past or projected future environmental change, expressed in the form of bird songs.<br><br>Click “Generate Soundscape” and the system will create a unique soundscape that spans across time periods.</p> 
-    <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true; isWoodLand(); generateSoundscape();">Generate Soundscape</button>
+    <p id="overview" v-if="!isHidden">There are around 3 billion fewer birds alive in North America today than there were in 1970. 3 billion is one of those numbers that is so big, it is difficult to understand.<br><br>Interested to learn what 3 billion less birds in the environment sounds like, we built Byrd Bot, an online tool that generates artificial bird soundscapes that simulate what the woods would sound like at 3 different points in time: 1970, 2017, and 2065.<br><br>Users can compare the soundscapes to experience decades of past or projected future environmental change, expressed in the form of bird songs.<br><br> <span id="instructions">Push <span id="yellow"></span> and the system will create a unique soundscape that spans across time periods.</span></p> 
       <!--<p><button class="landscape" id="woodlands" v-if="isHidden3" v-on:click="isWoodLand(); generateSoundscape(); isHidden3=false; isHidden4=false; isHidden2=true; other()">Listen to Soundscape</button><p>-->
     <span>
-    <p>
-     <!--<p id="surveyQuestion" v-if="!isHidden"><br><br><br><br>Are you interested to help us learn more about environmental communication by filling out a brief survey before and after interacting with Byrd Bot?
-     <button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>-->
+ 
+     <p v-if="!isHidden" id="surveyQuestion"><br><br><br><br>Are you interested to help us learn more about environmental communication? If so, use the QR code below to open a survey that you can fill out before and after interacting with ByrdBot. <br>
+         <br><a href="https://rowan.co1.qualtrics.com/jfe/form/SV_eR5SdXa3GylTHBI"><img src="byrdbotsurvey.png"></a> </p>
+	
+
+     <!--<button id="aboutButton" v-if="!aboutHidden" v-on:click="isModalVisible=true">About</button>-->
      <!-- <button id="voiceButton" v-if="!voiceHidden" v-on:click="initiateVoiceControl()">Enable Voice Control</button>
      <br><button id="aboutButton" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden2=true; isHidden3=true; isHidden4=true; biome(); isWoodLand(); generateSoundscape()">Yes</button>-->
-    </p>
+    <!-- 
+</p>
     <iframe id="survey" v-if="isHidden4" src="https://rowan.co1.qualtrics.com/jfe/form/SV_5ulN08dAFJakrwW" width="640" height="2336" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    </span> 
+   -->  </span> 
+   <h3>{{ msg4 }}</h3> 
+    <button id="generateButton" v-if="!isHidden" v-on:click="aboutHidden=true; voiceHidden=true; isHidden=true; isHidden3=true; isWoodLand(); generateSoundscape();"></button>
+
    <!-- <button class="landscape" id="coast" v-if="isHidden3" v-on:click="isCoast(); generateSoundscape(); isHidden3=false; isHidden2=true">Coast</button>  
     <button class="landscape" id="backyard" v-if="isHidden3" v-on:click="isBackYard(); generateSoundscape(); isHidden3=false; isHidden2=true">Backyard</button>-->  
     <!--code for tracking frequency with box size fontSize: birdSoundVolume10/2 +'px' -->
-	<button id="nineteenSeventyButton" v-if="isHidden2" v-on:click="nineteenSeventy">Play 1970</button>
-    <button id="twentyTwentyButton" v-if="isHidden2" v-on:click="twentyTwenty">Play 2017</button>
-    <button id="twentyTwentyFiftyFive" v-if="isHidden2" v-on:click="fiftyFifty">Play 2065</button>
-    <p><button id="resetButton" v-if="resetHidden" v-on:click="aboutHidden=false; isHidden=false; isHidden2=false; surveyShow=false; reset(); voiceHidden=false">Reset</button></p>
-    <h3>{{ msg4 }}</h3> 
+	<button id="nineteenSeventyButton" v-if="isHidden2" v-on:click="nineteenSeventy"><span id="nineteenSeventyCircle"></span> to hear <b>1970</b></button>
+    <button id="twentyTwentyButton" v-if="isHidden2" v-on:click="twentyTwenty"><span id="twentyTwentyCircle"></span> to hear <b>2017</b></button> 
+    <button id="twentyTwentyFiftyFive" v-if="isHidden2" v-on:click="fiftyFifty"><span id="twentyTwentyFiftyFiveCircle"></span> to hear <b>2065</b></button>
     <canvas id="canvas"></canvas>
+        <button id="resetButton" v-if="resetHidden" v-on:click="aboutHidden=false; isHidden=false; isHidden2=false; surveyShow=false; reset(); voiceHidden=false"><span id="resetCircle"></span> to <b>reset</b></button> 
+
     <ul class="birdBox" id="birds3" >
       <li class="card" v-bind:style="{color: birdColor6, fontSize: 50 +'px'}" v-show="card6"><!-- <img class="card" :alt="birdName6" :src="birdImage6"> -->{{birdName6}}</li>
       <li class="card" v-bind:style="{color: birdColor7, fontSize: 50 +'px'}" v-show="card7"><!-- <img class="card" :alt="birdName7" :src="birdImage7"> -->{{birdName7}}</li>
@@ -48,10 +54,10 @@
       <li class="card" v-bind:style="{color: birdColor2, fontSize: 50 +'px'}" v-show="card2"><!-- <img class="card" :alt="birdName2" :src="birdImage2"> -->{{birdName2}}</li>
 	</ul> <h4> {{ meters1 }} </h4>
     <Modal v-show="isModalVisible" @voice="this.reInitiateVoiceControl" @close="isModalVisible = false"/> 
-    <iframe id="survey" v-if="surveyShow" src="https://rowan.co1.qualtrics.com/jfe/form/SV_0P7c1zqwJGzN3q6" width="640" height="2511" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    <div id="footer">
-		<p>Byrd Bot was developed by researchers at <a href="https://www.rowan.edu">Rowan University</a>. Bird songs generously provided by the Cornell Lab of Ornithology's <a href="https://www.macaulaylibrary.org">Macaulay Library</a>.  </p>
-	</div>
+		<br>
+		<br>
+		<br>
+		<footer id= "footer">Byrd Bot was developed by researchers at <a href="https://www.rowan.edu">Rowan University</a>. Bird songs generously provided by the <a href="https://www.macaulaylibrary.org">Cornell Lab of Ornithology/Macaulay Library</a>.  Individual credits for bird song recordings can be found <a href="https://soundsofhumanimpact.github.io/data">here</a>.</footer>
   </div>
 </template>
 
@@ -383,6 +389,48 @@ export default {
     }
   },
 mounted: function () {
+// Get the input field
+
+// Execute a function when the user presses a key on the keyboard
+window.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "b") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("generateButton").click();
+  }
+  
+  if (event.key === "y") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("resetButton").click();
+  }
+  
+    if (event.key === "r") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("nineteenSeventyButton").click();
+  }
+	if (event.key === "d") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("twentyTwentyButton").click();
+  }
+  
+	if (event.key === "o") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("twentyTwentyFiftyFive").click();
+  }
+});
+
+
+
       this.msg = "BYRD BOT"
       this.msg2 = ""
       if ('webkitSpeechRecognition' in window) {
@@ -397,11 +445,9 @@ mounted: function () {
   window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
   let finalTranscript = '';
   let recognition = new window.SpeechRecognition();
-
   recognition.interimResults = true;
   recognition.maxAlternatives = 10;
   recognition.continuous = true;
-
   recognition.onresult = (event) => {
   let interimTranscript = '';
     for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
@@ -505,7 +551,6 @@ recognition.start()
       //this.resultsType = "Back Yard"
       //for use later when more options are available
       this.woodLand = true //remove after updating data set
-
   },
      generateSoundscape: function () {
      var self = this; 
@@ -533,15 +578,12 @@ recognition.start()
 		function getRandomEntry() {
 		return self.filteredResults[Math.round(Math.random() * (self.filteredResults.length))];
 		}
-
 		for (var i=0; i<16; i++) {
 		var soundScapeVariables
 		
 		soundScapeVariables = getRandomEntry();
-
 		
 		randomEntries.push(soundScapeVariables);
-
 		}
 		
 		self.msg4 = randomEntries
@@ -556,7 +598,6 @@ recognition.start()
           
           
           var soundConstructor = "sound" + Math.floor(Math.random()*4+1) 
-
 //BIRD 1 - 10-40 Meters - 100% Volume          
           self.birdName1 = randomEntries[0].species
           self.birdNumber1 = randomEntries[0][soundConstructor]
@@ -690,7 +731,6 @@ recognition.start()
             if (probability >= birdProbabilityFour) {
               self.flipCardFour = false
             }
-
 //BIRD 5 - 50 Meters - 50% Volume 
           self.birdName5 = randomEntries[4].species
           self.birdNumber5 = randomEntries[4][soundConstructor]
@@ -756,7 +796,6 @@ recognition.start()
             if (probability >= birdProbabilitySix) {
               self.flipCardSix = false
             }
-
 //BIRD 7 - 60 Meters - 20% Volume 
           self.birdName7 = randomEntries[6].species
           self.birdNumber7 = randomEntries[6][soundConstructor]
@@ -897,7 +936,7 @@ recognition.start()
 			}
 			else {
 				console.log("sufficient birds generated")
-				self.msg2 = "Soundscape Generated"
+				self.msg2 = "Soundscapes Generated"
 				self.msg4 = "Select a Time Period to Listen"
 				self.processing = ""
 				self.isHidden2 = true
@@ -968,7 +1007,6 @@ recognition.start()
         
         this.birdSound10 = new Audio(this.birdNumber10)
         this.birdSound10.volume = .03
-
 //2020       
 //         this.birdAudio1 = new Audio(this.birdNumber1)
 //         this.birdAudio1.volume = 1
@@ -999,9 +1037,7 @@ recognition.start()
         
         this.birdAudio10 = new Audio(this.birdNumber10)
         this.birdAudio10.volume = .03
-
 //2065
-
 // 		this.birdSong1 = new Audio(this.birdNumber1)
 //         this.birdSong1.volume = 1
 //         
@@ -1208,7 +1244,6 @@ recognition.start()
             this.loopTwo()
           })
         }
-
         else {
         this.msg4 = ""
         //this.meters1 = '--------------------------------------------------------------------------------   10-40 Meters   --------------------------------------------------------------------------------', 
@@ -1232,7 +1267,6 @@ recognition.start()
         this.card9 = false;
         this.card10 = false;
         this.stop = false; 
-
         
         if (this.flipCardA == true) {
           //this.card1 = true; 
@@ -1421,7 +1455,6 @@ recognition.start()
         var canvas = document.getElementsByTagName("canvas")[0]
         canvas.width = 0
         canvas.height = 0
-
         
           this.birdSound1.pause();
           this.birdSound1.currentTime = 0;
@@ -1635,12 +1668,24 @@ recognition.start()
 .blink_me {
   animation: blinker 1s linear infinite;
 }
-
 @keyframes blinker {
   50% {
     opacity: 0;
   }
 }
+
+#instructions {
+    
+}
+
+#yellow {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display:inline-block;
+  background-color: yellow;
+}
+ 
 #surveyQuestion {
 width: 40%; 
 float: right;
@@ -1675,7 +1720,6 @@ color: red;
 padding-bottom: 0; 
 z-index: 2
 }
-
 .card {
 border-style: solid; 
 border-width: 1px;
@@ -1715,7 +1759,7 @@ button {
   font-size: large;  
 }
 #generateButton {
-background-color: mediumturquoise;
+background-color: black;
 margin-top: 15%; 
 }
 #voiceButton {
@@ -1730,20 +1774,69 @@ font-size: small;
 font-size: 12; 
 padding: 7px 16px;
 }
+
 #resetButton {
-background-color: lightgrey;  
-font-size: 16px;
-padding: 8px 8px;
+background-color: black; 
+text-align: left;
 }
-#resetButton:hover {
-  background-color: violet;
+#resetCircle {
+  border: none;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  border-radius: 50%;
+  background-color: white; 
 }
 #nineteenSeventyButton{
-background-color: mediumturquoise;  
+background-color: black; 
 }
+
 #twentyTwentyButton {
-background-color: salmon; 
+background-color: black; 
 }
+
+#twentyTwentyFiftyFive {
+background-color: black; 
+}
+
+#nineteenSeventyCircle {
+  border: none;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  border-radius: 50%;
+  background-color: salmon; 
+}
+#twentyTwentyCircle {
+  border: none;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  border-radius: 50%;
+  background-color: limegreen;
+  }
+#twentyTwentyFiftyFiveCircle {
+  border: none;
+  padding: 20px;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  border-radius: 50%;
+  background-color: cyan;
+  }  
+  
+  
 h4 {
   margin: 40px 0 0;
   text-align: center;
@@ -1766,8 +1859,11 @@ a {
   color: #42b983;
 }
 canvas {
-height: 150px; 
+height: 20px; 
 width: 100%; 
 }
-
+#footer {
+    position: relative;
+    margin-top: 10px;
+}
 </style>
