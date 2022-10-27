@@ -57,6 +57,21 @@
 		<br>
 		<br>
 		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 		<footer id= "footer">Byrd Bot was developed by researchers at <a href="https://www.rowan.edu">Rowan University</a>. Bird songs generously provided by the <a href="https://www.macaulaylibrary.org">Cornell Lab of Ornithology/Macaulay Library</a>.  Individual credits for bird song recordings can be found <a href="https://soundsofhumanimpact.github.io/data">here</a>.</footer>
   </div>
 </template>
@@ -1781,7 +1796,7 @@ text-align: left;
 }
 #resetCircle {
   border: none;
-  padding: 20px;
+  padding: 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -1804,18 +1819,18 @@ background-color: black;
 
 #nineteenSeventyCircle {
   border: none;
-  padding: 20px;
+  padding: 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 12px;
   margin: 4px 2px;
   border-radius: 50%;
-  background-color: salmon; 
+  background-color: #f5602a; 
 }
 #twentyTwentyCircle {
   border: none;
-  padding: 20px;
+  padding: 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -1826,14 +1841,14 @@ background-color: black;
   }
 #twentyTwentyFiftyFiveCircle {
   border: none;
-  padding: 20px;
+  padding: 12px;
   text-align: left;
   text-decoration: none;
   display: inline-block;
   font-size: 12px;
   margin: 4px 2px;
   border-radius: 50%;
-  background-color: cyan;
+  background-color: #4287f5;
   }  
   
   
