@@ -1,7 +1,7 @@
 <template>
   <div id="background">
   <h1 id="messageThree" v-bind:style="{ color: activeColor}">{{ msg3 }}</h1> 
-  <h2 id="time" class="messageOne">{{ msg }}</h2>
+  <h2 id="time" class="messageOne" v-bind:style="{color: timeColor}">{{ msg }}</h2>
     <h3 id="messageTwo">{{ msg2 }}</h3> 
     <h2 class="blink_me" id="processing">{{ processing }}</h2> 
     <p id="overview" v-if="!isHidden">There are around 3 billion fewer birds alive in North America today than there were in 1970. 3 billion is one of those numbers that is so big, it is difficult to understand.<br><br>Interested to learn what 3 billion less birds in the environment sounds like, we built Byrd Bot, an online tool that generates artificial bird soundscapes that simulate what the woods would sound like at 3 different points in time: 1970, 2017, and 2065.<br><br>Users can compare the soundscapes to experience decades of past or projected future environmental change, expressed in the form of bird songs.<br><br> <span id="instructions">Push <span id="yellow"></span> and the system will create a unique soundscape that spans across time periods.</span></p> 
@@ -88,6 +88,7 @@ export default {
   },
   data () {
     return {
+		timeColor: '', 
       msg: '',
       msg2: '',
       msg3: '', 
@@ -1151,6 +1152,7 @@ recognition.start()
         canvas.height = 0
         
         this.msg = "1970"
+        this.timeColor = "#f5602a"
         this.msg2 = ""
         this.card1 = false; 
         this.card2 = false; 
@@ -1270,6 +1272,7 @@ recognition.start()
         canvas.height = 0 
         
         this.msg = "2017"
+        this.timeColor = "limegreen" 
         this.msg2 = ""
         this.card1 = false; 
         this.card2 = false; 
@@ -1390,6 +1393,7 @@ recognition.start()
         canvas.height = 0
         
         this.msg = "2065"
+        this.timeColor = "#4287f5" 
         this.msg2 = ""
         this.card1 = false; 
         this.card2 = false; 
@@ -1443,97 +1447,7 @@ recognition.start()
         })
         }
     },
-    reset: function () {
-        this.resetHidden = false
-        this.woodLand = false; 
-        this.coast = false; 
-        this.backYard = false; 
-        this.msg = "BYRD BOT"
-        this.msg2 = ""
-        this.msg3 = ""
-        this.msg4 = ""
-        this.meters1 = ''
-        this.meters2 = ''
-        this.meters3 = ''
-        this.processing = ''
-        
-        this.card1 = false; 
-        this.card2 = false; 
-        this.card3 = false; 
-        this.card4 = false;
-        this.card5 = false;
-        this.card6 = false;
-        this.card7 = false;
-        this.card8 = false;
-        this.card9 = false;
-        this.card10 = false;
-        var canvas = document.getElementsByTagName("canvas")[0]
-        canvas.width = 0
-        canvas.height = 0
-        
-          this.birdSound1.pause();
-          this.birdSound1.currentTime = 0;
-          this.birdSound2.pause();
-          this.birdSound2.currentTime = 0;
-          this.birdSound3.pause();
-          this.birdSound3.currentTime = 0;
-          this.birdSound4.pause();
-          this.birdSound4.currentTime = 0;
-          this.birdSound5.pause();
-          this.birdSound5.currentTime = 0;
-          this.birdSound6.pause();
-          this.birdSound6.currentTime = 0;
-          this.birdSound7.pause();
-          this.birdSound7.currentTime = 0;
-          this.birdSound8.pause();
-          this.birdSound8.currentTime = 0;
-          this.birdSound9.pause();
-          this.birdSound9.currentTime = 0;
-          this.birdSound10.pause();
-          this.birdSound10.currentTime = 0;
-          
-//           this.birdAudio1.pause();
-//           this.birdAudio1.currentTime = 0;
-//           this.birdAudio2.pause();
-//           this.birdAudio2.currentTime = 0;
-//           this.birdAudio3.pause();
-//           this.birdAudio3.currentTime = 0;
-          this.birdAudio4.pause();
-          this.birdAudio4.currentTime = 0;
-          this.birdAudio5.pause();
-          this.birdAudio5.currentTime = 0;
-          this.birdAudio6.pause();
-          this.birdAudio6.currentTime = 0;
-          this.birdAudio7.pause();
-          this.birdAudio7.currentTime = 0;
-          this.birdAudio8.pause();
-          this.birdAudio8.currentTime = 0;
-          this.birdAudio9.pause();
-          this.birdAudio9.currentTime = 0;
-          this.birdAudio10.pause();
-          this.birdAudio10.currentTime = 0;
-          
-//           this.birdSong1.pause();
-//           this.birdSong1.currentTime = 0;
-//           this.birdSong2.pause();
-//           this.birdSong2.currentTime = 0;
-//           this.birdSong3.pause();
-//           this.birdSong3.currentTime = 0;
-//           this.birdSong4.pause();
-//           this.birdSong4.currentTime = 0;
-//           this.birdSong5.pause();
-//           this.birdSong5.currentTime = 0;
-          this.birdSong6.pause();
-          this.birdSong6.currentTime = 0;
-          this.birdSong7.pause();
-          this.birdSong7.currentTime = 0;
-          this.birdSong8.pause();
-          this.birdSong8.currentTime = 0;
-          this.birdSong9.pause();
-          this.birdSong9.currentTime = 0;
-          this.birdSong10.pause();
-          this.birdSong10.currentTime = 0;
-          
+    reset: function () {window.location.reload()
         
      },   
      visualizeNineteenSeventy: function (){
