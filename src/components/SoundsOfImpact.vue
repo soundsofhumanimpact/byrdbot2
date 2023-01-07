@@ -409,14 +409,15 @@ created: function () {
 var time = new Date().getTime();
 window.addEventListener("keypress", function(event) {
 
-if (event.key !== "y") {
+if (event.key !== "z") {
     time = new Date().getTime();
+    console.log("screensaver timer reset")
     }
 });
 
 function refresh() {
     if(new Date().getTime() - time >= 110000) 
-        window.location.reload(true);
+        window.location.href = 'https://soundsofhumanimpact.github.io/byrdbot2screensaver/'; 
     else 
         setTimeout(refresh, 10000);
 }
